@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.slacklintinvestigation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.slacklintinvestigation"
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -47,6 +47,19 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    lint {
+        htmlReport = true
+        htmlOutput = file("lint-report.html")
+        textReport = true
+        absolutePaths = false
+        ignoreTestSources = true
+        abortOnError = true
+        checkReleaseBuilds = false
+        warningsAsErrors = true
+        checkDependencies = true
+    }
+
 }
 
 dependencies {
